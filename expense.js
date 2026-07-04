@@ -1,4 +1,6 @@
-// ===== DOM Elements =====
+// =======================================
+// DOM Elements
+// =======================================
 
 const desc = document.querySelector("#desc");
 const amount = document.querySelector("#amount");
@@ -17,18 +19,23 @@ const filter = document.querySelector("#filter");
 
 const themeBtn = document.querySelector("#themeBtn");
 
-// ===== State =====
-
-let transactions =
-JSON.parse(localStorage.getItem("transactions"))
-|| [];
+const countEl = document.querySelector("#count");
+const monthExpenseEl = document.querySelector("#monthExpense");
 
 let chart;
 
+// =======================================
+// State
+// =======================================
 
-// ========================
-// Save Data
-// ========================
+let transactions =
+JSON.parse(
+localStorage.getItem("transactions")
+) || [];
+
+// =======================================
+// Save
+// =======================================
 
 function save() {
 
@@ -42,12 +49,11 @@ JSON.stringify(transactions)
 
 }
 
-
-// ========================
+// =======================================
 // Add Transaction
-// ========================
+// =======================================
 
-function addTransaction() {
+function addTransaction(){
 
 if(
 
@@ -115,10 +121,9 @@ clearInputs();
 
 }
 
-
-// ========================
+// =======================================
 // Clear Inputs
-// ========================
+// =======================================
 
 function clearInputs(){
 
@@ -132,10 +137,9 @@ type.selectedIndex=0;
 
 }
 
-
-// ========================
+// =======================================
 // Delete
-// ========================
+// =======================================
 
 function deleteTransaction(id){
 
@@ -153,10 +157,53 @@ render();
 
 }
 
+// =======================================
+// Edit
+// =======================================
 
-// ========================
+function editTransaction(id){
+
+const transaction =
+
+transactions.find(
+
+t => t.id===id
+
+);
+
+desc.value =
+
+transaction.description;
+
+amount.value =
+
+transaction.amount;
+
+category.value =
+
+transaction.category;
+
+type.value =
+
+transaction.type;
+
+transactions =
+
+transactions.filter(
+
+t=>t.id!==id
+
+);
+
+save();
+
+render();
+
+}
+
+// =======================================
 // Summary
-// ========================
+// =======================================
 
 function calculateSummary(){
 
@@ -166,9 +213,7 @@ transactions
 
 .filter(
 
-t =>
-
-t.type==="income"
+t=>t.type==="income"
 
 )
 
@@ -188,9 +233,7 @@ transactions
 
 .filter(
 
-t =>
-
-t.type==="expense"
+t=>t.type==="expense"
 
 )
 
@@ -216,6 +259,56 @@ balanceEl.textContent =
 
 `₹${income-expense}`;
 
+const currentMonth =
+
+new Date()
+
+.getMonth();
+
+const monthlyExpense =
+
+transactions
+
+.filter(
+
+t=>
+
+t.type==="expense"
+
+&&
+
+new Date(
+
+t.date
+
+)
+
+.getMonth()
+
+===
+
+currentMonth
+
+)
+
+.reduce(
+
+(sum,t)=>
+
+sum+t.amount,
+
+0
+
+);
+
+if(monthExpenseEl){
+
+monthExpenseEl.textContent =
+
+`₹${monthlyExpense}`;
+
+}
+
 updateChart(
 
 income,
@@ -226,10 +319,9 @@ expense
 
 }
 
-
-// ========================
-// Render Table
-// ========================
+// =======================================
+// Render
+// =======================================
 
 function render(
 
@@ -238,6 +330,40 @@ list = transactions
 ){
 
 tbody.innerHTML="";
+
+if(
+
+list.length===0
+
+){
+
+tbody.innerHTML =
+
+`
+
+<tr>
+
+<td colspan="6">
+
+No Transactions Found
+
+</td>
+
+</tr>
+
+`;
+
+calculateSummary();
+
+if(countEl){
+
+countEl.textContent = 0;
+
+}
+
+return;
+
+}
 
 list.forEach(
 
@@ -251,7 +377,9 @@ document.createElement(
 
 );
 
-row.innerHTML = `
+row.innerHTML =
+
+`
 
 <td>
 
@@ -287,6 +415,18 @@ ${t.date}
 
 <button
 
+class="edit"
+
+data-id="${t.id}"
+
+>
+
+Edit
+
+</button>
+
+<button
+
 class="delete"
 
 data-id="${t.id}"
@@ -301,6 +441,24 @@ Delete
 
 `;
 
+if(
+
+transactions.indexOf(t)
+
+===
+
+transactions.length-1
+
+){
+
+row.classList.add(
+
+"latest"
+
+);
+
+}
+
 tbody.append(
 
 row
@@ -311,14 +469,21 @@ row
 
 );
 
+if(countEl){
+
+countEl.textContent =
+
+list.length;
+
+}
+
 calculateSummary();
 
 }
 
-
-// ========================
+// =======================================
 // Search
-// ========================
+// =======================================
 
 search.addEventListener(
 
@@ -342,20 +507,27 @@ t.description
 
 .toLowerCase()
 
-.includes(value)
+.includes(
+
+value
+
+)
 
 );
 
-render(filtered);
+render(
+
+filtered
+
+);
 
 }
 
 );
 
-
-// ========================
+// =======================================
 // Filter
-// ========================
+// =======================================
 
 filter.addEventListener(
 
@@ -399,16 +571,19 @@ filtered
 
 );
 
-
-// ========================
-// Event Delegation
-// ========================
+// =======================================
+// Table Events
+// =======================================
 
 tbody.addEventListener(
 
 "click",
 
 e=>{
+
+const id =
+
+e.target.dataset.id;
 
 if(
 
@@ -424,7 +599,27 @@ e.target.classList
 
 deleteTransaction(
 
-e.target.dataset.id
+id
+
+);
+
+}
+
+if(
+
+e.target.classList
+
+.contains(
+
+"edit"
+
+)
+
+){
+
+editTransaction(
+
+id
 
 );
 
@@ -434,10 +629,239 @@ e.target.dataset.id
 
 );
 
+// =======================================
+// Sort Amount
+// =======================================
 
-// ========================
+const sortAmount =
+
+document.querySelector(
+
+"#sortAmount"
+
+);
+
+if(sortAmount){
+
+sortAmount
+
+.addEventListener(
+
+"click",
+
+()=>{
+
+transactions.sort(
+
+(a,b)=>
+
+a.amount
+
+-
+
+b.amount
+
+);
+
+render();
+
+}
+
+);
+
+}
+
+// =======================================
+// Sort Date
+// =======================================
+
+const sortDate =
+
+document.querySelector(
+
+"#sortDate"
+
+);
+
+if(sortDate){
+
+sortDate
+
+.addEventListener(
+
+"click",
+
+()=>{
+
+transactions.sort(
+
+(a,b)=>
+
+new Date(
+
+a.date
+
+)
+
+-
+
+new Date(
+
+b.date
+
+)
+
+);
+
+render();
+
+}
+
+);
+
+}
+
+// =======================================
+// Export CSV
+// =======================================
+
+const exportBtn =
+
+document.querySelector(
+
+"#export"
+
+);
+
+if(exportBtn){
+
+exportBtn
+
+.addEventListener(
+
+"click",
+
+()=>{
+
+let csv =
+
+"Description,Category,Amount,Type,Date\n";
+
+transactions.forEach(
+
+t=>{
+
+csv +=
+
+`${t.description},
+
+${t.category},
+
+${t.amount},
+
+${t.type},
+
+${t.date}\n`;
+
+}
+
+);
+
+const blob =
+
+new Blob(
+
+[csv],
+
+{
+
+type:
+
+"text/csv"
+
+}
+
+);
+
+const url =
+
+URL.createObjectURL(
+
+blob
+
+);
+
+const a =
+
+document.createElement(
+
+"a"
+
+);
+
+a.href = url;
+
+a.download =
+
+"transactions.csv";
+
+a.click();
+
+}
+
+);
+
+}
+
+// =======================================
+// Clear All
+// =======================================
+
+const clearAll =
+
+document.querySelector(
+
+"#clearAll"
+
+);
+
+if(clearAll){
+
+clearAll
+
+.addEventListener(
+
+"click",
+
+()=>{
+
+if(
+
+confirm(
+
+"Delete all transactions?"
+
+)
+
+){
+
+transactions=[];
+
+save();
+
+render();
+
+}
+
+}
+
+);
+
+}
+
+// =======================================
 // Chart
-// ========================
+// =======================================
 
 function updateChart(
 
@@ -455,19 +879,25 @@ document.getElementById(
 
 );
 
+if(!ctx) return;
+
 if(chart){
 
 chart.destroy();
 
 }
 
-chart = new Chart(
+chart =
+
+new Chart(
 
 ctx,
 
 {
 
-type:"doughnut",
+type:
+
+"doughnut",
 
 data:{
 
@@ -527,10 +957,9 @@ position:
 
 }
 
-
-// ========================
-// Dark Mode
-// ========================
+// =======================================
+// Theme
+// =======================================
 
 themeBtn
 
@@ -568,10 +997,9 @@ document.body
 
 );
 
-
-// ========================
+// =======================================
 // Load Theme
-// ========================
+// =======================================
 
 if(
 
@@ -593,12 +1021,37 @@ document.body
 
 }
 
+// =======================================
+// Enter Key Support
+// =======================================
 
-// ========================
+document.addEventListener(
+
+"keypress",
+
+e=>{
+
+if(
+
+e.key==="Enter"
+
+){
+
+addTransaction();
+
+}
+
+}
+
+);
+
+// =======================================
 // Add Button
-// ========================
+// =======================================
 
-addBtn.addEventListener(
+addBtn
+
+.addEventListener(
 
 "click",
 
@@ -606,9 +1059,8 @@ addTransaction
 
 );
 
-
-// ========================
+// =======================================
 // Initial Render
-// ========================
+// =======================================
 
 render();
