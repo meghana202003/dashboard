@@ -1,6 +1,4 @@
-/* Google Font */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 *{
     margin:0;
@@ -15,7 +13,7 @@ body{
 
     color:#1e293b;
 
-    transition:.3s ease;
+    transition:0.3s ease;
 
 }
 
@@ -69,7 +67,7 @@ header h1{
 
     font-size:15px;
 
-    transition:.3s;
+    transition:0.3s;
 
 }
 
@@ -81,14 +79,12 @@ header h1{
 
 }
 
-/* Summary Cards */
 
 .cards{
 
     display:grid;
 
     grid-template-columns:
-
     repeat(auto-fit,minmax(250px,1fr));
 
     gap:20px;
@@ -106,10 +102,9 @@ header h1{
     background:white;
 
     box-shadow:
-
     0 10px 30px rgba(0,0,0,0.08);
 
-    transition:.3s;
+    transition:0.3s;
 
 }
 
@@ -153,6 +148,69 @@ header h1{
 
 }
 
+/* Stats Section */
+
+.stats{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:30px;
+
+}
+
+.statsBox{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:16px;
+
+    min-width:220px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.06);
+
+}
+
+.statsBox h4{
+
+    color:#64748b;
+
+    margin-bottom:8px;
+
+}
+
+.statsBox p{
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+#count{
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:4px 12px;
+
+    border-radius:20px;
+
+}
+
+#monthExpense{
+
+    color:#ef4444;
+
+}
+
 /* Form */
 
 .formBox{
@@ -160,7 +218,6 @@ header h1{
     display:grid;
 
     grid-template-columns:
-
     2fr 1fr 1fr 1fr auto;
 
     gap:15px;
@@ -170,7 +227,6 @@ header h1{
 }
 
 input,
-
 select{
 
     padding:14px;
@@ -186,7 +242,6 @@ select{
 }
 
 input:focus,
-
 select:focus{
 
     border-color:#2563eb;
@@ -207,7 +262,7 @@ select:focus{
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:0.3s;
 
 }
 
@@ -217,7 +272,7 @@ select:focus{
 
 }
 
-/* Search Filter */
+/* Search */
 
 .controls{
 
@@ -241,6 +296,66 @@ select:focus{
 
 }
 
+/* Action Buttons */
+
+.actionButtons{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:25px;
+
+}
+
+.actionButtons button{
+
+    padding:12px 18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.actionButtons button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+#sortAmount{
+
+    background:#2563eb;
+
+}
+
+#sortDate{
+
+    background:#7c3aed;
+
+}
+
+#export{
+
+    background:#14b8a6;
+
+}
+
+#clearAll{
+
+    background:#ef4444;
+
+}
+
 /* Table */
 
 table{
@@ -256,7 +371,6 @@ table{
     overflow:hidden;
 
     box-shadow:
-
     0 5px 25px rgba(0,0,0,0.05);
 
 }
@@ -282,7 +396,6 @@ td{
     padding:16px;
 
     border-bottom:
-
     1px solid #edf2f7;
 
 }
@@ -293,19 +406,51 @@ tbody tr:hover{
 
 }
 
-/* Delete Button */
+.latest{
+
+    background:#dcfce7;
+
+    font-weight:600;
+
+}
+
+/* Buttons */
+
+.edit{
+
+    padding:8px 14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#f59e0b;
+
+    color:white;
+
+    cursor:pointer;
+
+    margin-right:6px;
+
+}
+
+.edit:hover{
+
+    background:#d97706;
+
+}
 
 .delete{
 
     padding:8px 14px;
 
-    background:#ef4444;
-
-    color:white;
-
     border:none;
 
     border-radius:8px;
+
+    background:#ef4444;
+
+    color:white;
 
     cursor:pointer;
 
@@ -314,6 +459,22 @@ tbody tr:hover{
 .delete:hover{
 
     background:#dc2626;
+
+}
+
+/* Empty Table */
+
+.empty{
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#94a3b8;
+
+    padding:35px;
 
 }
 
@@ -330,7 +491,6 @@ tbody tr:hover{
     border-radius:18px;
 
     box-shadow:
-
     0 5px 20px rgba(0,0,0,.06);
 
 }
@@ -345,6 +505,34 @@ tbody tr:hover{
 
 }
 
+/* Animation */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.latest{
+
+    animation:fadeIn .5s ease;
+
+}
+
 /* Dark Mode */
 
 .dark{
@@ -356,6 +544,12 @@ tbody tr:hover{
 }
 
 .dark .card{
+
+    background:#1e293b;
+
+}
+
+.dark .statsBox{
 
     background:#1e293b;
 
@@ -397,6 +591,30 @@ tbody tr:hover{
 
 }
 
+.dark .latest{
+
+    background:#14532d;
+
+}
+
+.dark .empty{
+
+    color:#cbd5e1;
+
+}
+
+.dark .statsBox h4{
+
+    color:#cbd5e1;
+
+}
+
+.dark #count{
+
+    background:#3b82f6;
+
+}
+
 /* Responsive */
 
 @media(max-width:900px){
@@ -427,6 +645,24 @@ grid-template-columns:1fr;
 
 }
 
+.stats{
+
+flex-direction:column;
+
+}
+
+.actionButtons{
+
+flex-direction:column;
+
+}
+
+.actionButtons button{
+
+width:100%;
+
+}
+
 table{
 
 display:block;
@@ -436,3 +672,26 @@ overflow-x:auto;
 }
 
 }
+
+@media(max-width:600px){
+
+header h1{
+
+font-size:26px;
+
+}
+
+.card p{
+
+font-size:22px;
+
+}
+
+.statsBox{
+
+width:100%;
+
+}
+
+}
+
