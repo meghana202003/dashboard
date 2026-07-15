@@ -1,0 +1,76 @@
+
+    background:#e5e7eb;
+
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+=================================== */
+
+@media(max-width:992px){
+
+    .navbar{
+
+        flex-wrap:wrap;
+
+        gap:20px;
+
+    }
+
+    .searchBox{
+
+        width:100%;
+
+    }
+
+    .hero{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .heroText h1{
+
+        font-size:42px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .navLinks{
+
+        display:none;
+
+    }
+
+    .heroText h1{
+
+        font-size:34px;
+
+    }
+
+    .newsletter input{
+
+        width:100%;
+
+        margin-bottom:15px;
+
+    }
+
+    .newsletter button{
+
+        width:100%;
+
+        margin-left:0;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .heroText h1{
