@@ -1,0 +1,33 @@
+
+.actionButtons button{
+
+    width:100%;
+
+}
+
+.headerRight{
+
+    flex-direction:column;
+    width:100%;
+
+}
+
+.headerRight input{
+
+    width:100%;
+
+}
+
+.transactionForm{
+
+    grid-template-columns:1fr;
+
+}
+
+.badges{
+
+    grid-template-columns:1fr;
+
+}
+
+
