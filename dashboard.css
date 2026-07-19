@@ -1,0 +1,65 @@
+
+.actionButtons button{
+
+    width:100%;
+
+}
+
+.headerRight{
+
+    flex-direction:column;
+    width:100%;
+
+}
+
+.headerRight input{
+
+    width:100%;
+
+}
+
+.transactionForm{
+
+    grid-template-columns:1fr;
+
+}
+
+.badges{
+
+    grid-template-columns:1fr;
+
+}
+.sidebar{
+
+    display:none;
+
+}
+
+.cards,
+.analyticsCards,
+.chartSection{
+
+    grid-template-columns:1fr;
+
+}
+
+.controls{
+
+    flex-direction:column;
+
+}
+
+.filterBox{
+
+    flex-direction:column;
+
+}
+
+.actionButtons{
+
+    flex-direction:column;
+
+}
+
+
+
