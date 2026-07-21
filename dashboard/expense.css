@@ -1,0 +1,697 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:#f4f7fe;
+
+    color:#1e293b;
+
+    transition:0.3s ease;
+
+}
+
+/* Container */
+
+.container{
+
+    width:90%;
+
+    max-width:1400px;
+
+    margin:40px auto;
+
+}
+
+/* Header */
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+header h1{
+
+    font-size:32px;
+
+    font-weight:700;
+
+}
+
+#themeBtn{
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:0.3s;
+
+}
+
+#themeBtn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+
+    margin-bottom:30px;
+
+}
+
+.card{
+
+    padding:25px;
+
+    border-radius:18px;
+
+    background:white;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.card h3{
+
+    font-size:18px;
+
+    margin-bottom:10px;
+
+}
+
+.card p{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+.income{
+
+    border-left:6px solid #22c55e;
+
+}
+
+.expense{
+
+    border-left:6px solid #ef4444;
+
+}
+
+.balance{
+
+    border-left:6px solid #2563eb;
+
+}
+
+/* Stats Section */
+
+.stats{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:30px;
+
+}
+
+.statsBox{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:16px;
+
+    min-width:220px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.06);
+
+}
+
+.statsBox h4{
+
+    color:#64748b;
+
+    margin-bottom:8px;
+
+}
+
+.statsBox p{
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+#count{
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:4px 12px;
+
+    border-radius:20px;
+
+}
+
+#monthExpense{
+
+    color:#ef4444;
+
+}
+
+/* Form */
+
+.formBox{
+
+    display:grid;
+
+    grid-template-columns:
+    2fr 1fr 1fr 1fr auto;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+input,
+select{
+
+    padding:14px;
+
+    border:1px solid #dbe2ef;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:15px;
+
+}
+
+input:focus,
+select:focus{
+
+    border-color:#2563eb;
+
+}
+
+#addBtn{
+
+    background:#22c55e;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:14px 25px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+#addBtn:hover{
+
+    background:#16a34a;
+
+}
+
+/* Search */
+
+.controls{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+#search{
+
+    flex:1;
+
+}
+
+#filter{
+
+    width:180px;
+
+}
+
+/* Action Buttons */
+
+.actionButtons{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:25px;
+
+}
+
+.actionButtons button{
+
+    padding:12px 18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.actionButtons button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+#sortAmount{
+
+    background:#2563eb;
+
+}
+
+#sortDate{
+
+    background:#7c3aed;
+
+}
+
+#export{
+
+    background:#14b8a6;
+
+}
+
+#clearAll{
+
+    background:#ef4444;
+
+}
+
+/* Table */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 5px 25px rgba(0,0,0,0.05);
+
+}
+
+thead{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+th{
+
+    padding:18px;
+
+    text-align:left;
+
+}
+
+td{
+
+    padding:16px;
+
+    border-bottom:
+    1px solid #edf2f7;
+
+}
+
+tbody tr:hover{
+
+    background:#f8fafc;
+
+}
+
+.latest{
+
+    background:#dcfce7;
+
+    font-weight:600;
+
+}
+
+/* Buttons */
+
+.edit{
+
+    padding:8px 14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#f59e0b;
+
+    color:white;
+
+    cursor:pointer;
+
+    margin-right:6px;
+
+}
+
+.edit:hover{
+
+    background:#d97706;
+
+}
+
+.delete{
+
+    padding:8px 14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#ef4444;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.delete:hover{
+
+    background:#dc2626;
+
+}
+
+/* Empty Table */
+
+.empty{
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#94a3b8;
+
+    padding:35px;
+
+}
+
+/* Chart */
+
+.chartBox{
+
+    margin-top:30px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.06);
+
+}
+
+.chartBox canvas{
+
+    max-width:450px;
+
+    margin:auto;
+
+    display:block;
+
+}
+
+/* Animation */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.latest{
+
+    animation:fadeIn .5s ease;
+
+}
+
+/* Dark Mode */
+
+.dark{
+
+    background:#0f172a;
+
+    color:white;
+
+}
+
+.dark .card{
+
+    background:#1e293b;
+
+}
+
+.dark .statsBox{
+
+    background:#1e293b;
+
+}
+
+.dark table{
+
+    background:#1e293b;
+
+}
+
+.dark td{
+
+    border-color:#334155;
+
+}
+
+.dark tbody tr:hover{
+
+    background:#334155;
+
+}
+
+.dark input,
+
+.dark select{
+
+    background:#334155;
+
+    color:white;
+
+    border:1px solid #475569;
+
+}
+
+.dark .chartBox{
+
+    background:#1e293b;
+
+}
+
+.dark .latest{
+
+    background:#14532d;
+
+}
+
+.dark .empty{
+
+    color:#cbd5e1;
+
+}
+
+.dark .statsBox h4{
+
+    color:#cbd5e1;
+
+}
+
+.dark #count{
+
+    background:#3b82f6;
+
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.formBox{
+
+grid-template-columns:1fr;
+
+}
+
+.controls{
+
+flex-direction:column;
+
+}
+
+header{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+.stats{
+
+flex-direction:column;
+
+}
+
+.actionButtons{
+
+flex-direction:column;
+
+}
+
+.actionButtons button{
+
+width:100%;
+
+}
+
+table{
+
+display:block;
+
+overflow-x:auto;
+
+}
+
+}
+
+@media(max-width:600px){
+
+header h1{
+
+font-size:26px;
+
+}
+
+.card p{
+
+font-size:22px;
+
+}
+
+.statsBox{
+
+width:100%;
+
+}
+
+}
+

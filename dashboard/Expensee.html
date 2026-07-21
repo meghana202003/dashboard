@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Advanced Expense Tracker Dashboard</title>
+
+<link rel="stylesheet" href="Expense.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!--======================
+LOADER
+=======================-->
+
+<div id="loader">
+
+<div class="spinner"></div>
+
+<h2>Loading Dashboard...</h2>
+
+</div>
+
+<!--======================
+SIDEBAR
+=======================-->
+
+<div class="sidebar">
+
+<div class="logo">
+
+<i class="fa-solid fa-wallet"></i>
+
+<h2>Expense Tracker</h2>
+
+</div>
+
+<ul>
+
+<li class="active">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Dashboard
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-money-bill"></i>
+
+Transactions
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-chart-pie"></i>
+
+Analytics
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-bullseye"></i>
+
+Goals
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-wallet"></i>
+
+Budget
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-award"></i>
+
+Achievements
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-gear"></i>
+
+Settings
+
+</li>
+
+</ul>
+
+</div>
+
+<!--======================
+MAIN CONTENT
+=======================-->
+
+<div class="main">
+
+<!--======================
+HEADER
+=======================-->
+
+<header>
+
+<div>
+
+<h1>
+
+Expense Tracker Dashboard
+
+</h1>
+
+<p>
+
+Track your expenses professionally
+
+</p>
+
+</div>
+
+<div class="headerRight">
+
+<input
+type="text"
+id="globalSearch"
+placeholder="Search...">
+
+<button id="themeBtn">
+
+🌙
+
+</button>
+
+<div class="profile">
+
+<img src="https://i.pravatar.cc/50" alt="profile">
+
+<span>
+
+Meghana
+
+</span>
+
+</div>
+
+</div>
+
+</header>
+
+<!--======================
+SUMMARY CARDS
+=======================-->
+
+<section class="cards">
+
+<div class="card income">
+
+<i class="fa-solid fa-arrow-trend-up"></i>
+
+<h3>Total Income</h3>
+
+<h2 id="income">
+
+₹0
+
+</h2>
+
+</div>
+
+<div class="card expense">
+
+<i class="fa-solid fa-arrow-trend-down"></i>
+
+<h3>Total Expense</h3>
+
+<h2 id="expense">
+
+₹0
+
+</h2>
+
+</div>
+
+<div class="card balance">
+
+<i class="fa-solid fa-wallet"></i>
+
+<h3>Balance</h3>
+
+<h2 id="balance">
+
+₹0
+
+</h2>
+
+</div>
+
+<div class="card savings">
+
+<i class="fa-solid fa-piggy-bank"></i>
+
+<h3>Savings</h3>
+
+<h2 id="saving">
+
+₹0
+
+</h2>
+
+</div>
+
+</section>
+
+<!--======================
+EXTRA ANALYTICS
+=======================-->
+
+<section class="analyticsCards">
+
+<div class="analytics">
+
+<h3>
+
+Highest Expense
+
+</h3>
+
+<h2 id="highestExpense">
+
+₹0
+
+</h2>
+
+</div>
+
+<div class="analytics">
+
+<h3>
+
+Highest Income
+
+</h3>
+
+<h2 id="highestIncome">
+
+₹0
+
+</h2>
+
+</div>
+
+<div class="analytics">
+
+<h3>
+
+Today's Expense
+
+</h3>
+
+<h2 id="todayExpense">
+
+₹0
+
+</h2>
+
+</div>
+
+<div class="analytics">
+
+<h3>
+
+This Month
+
+</h3>
+
+<h2 id="monthExpense">
+
+₹0
+
+</h2>
+
+</div>
+
+</section>
+
+<!--======================
+BUDGET SECTION
+=======================-->
+
+<section class="budgetContainer">
+
+<div class="budgetBox">
+
+<h2>
+
+Monthly Budget
+
+</h2>
+
+<input
+type="number"
+id="budgetInput"
+placeholder="Enter Budget">
+
+<button id="saveBudget">
+
+Save Budget
+
+</button>
+
+<h3>
+
+Remaining Budget
+
+</h3>
+
+<h2 id="remainingBudget">
+
+₹0
+
+</h2>
+
+<div class="progress">
+
+<div id="progressBar"></div>
+
+</div>
+
+</div>
+
+<div class="financialHealth">
+
+<h2>
+
+Financial Health
+
+</h2>
+
+<h1>
+
+⭐ ⭐ ⭐ ⭐ ☆
+
+</h1>
+
+<h3>
+
+Score
+
+</h3>
+
+<h2 id="healthScore">
+
+82/100
+
+</h2>
+
+</div>
+
+</section>
+
+<!--======================
+TRANSACTION FORM
+=======================-->
+
+<section class="transactionForm">
+
+<h2>
+
+Add Transaction
+
+</h2>
+
+<input
+type="text"
+id="desc"
+placeholder="Description">
+
+<input
+type="number"
+id="amount"
+placeholder="Amount">
+
+<select id="category">
+
+<option>Food</option>
+<option>Travel</option>
+<option>Shopping</option>
+<option>Bills</option>
+<option>Salary</option>
+<option>Entertainment</option>
+<option>Medical</option>
+<option>Education</option>
+<option>Investment</option>
+<option>Other</option>
+
+</select>
+
+<select id="type">
+
+<option value="income">
+
+Income
+
+</option>
+
+<option value="expense">
+
+Expense
+
+</option>
+
+</select>
+
+<input
+type="date"
+id="transactionDate">
+
+<button id="addBtn">
+
+Add Transaction
+
+</button>
+
+</section>
+<!-- ======================
+SEARCH & FILTER
+====================== -->
+
+<section class="controls">
+
+<div class="searchBox">
+
+<input
+type="text"
+id="search"
+placeholder="🔍 Search Transactions">
+
+</div>
+
+<div class="filterBox">
+
+<select id="filter">
+
+<option value="all">All Transactions</option>
+<option value="income">Income</option>
+<option value="expense">Expense</option>
+
+</select>
+
+<select id="categoryFilter">
+
+<option value="all">All Categories</option>
+<option value="Food">Food</option>
+<option value="Travel">Travel</option>
+<option value="Shopping">Shopping</option>
+<option value="Bills">Bills</option>
+<option value="Salary">Salary</option>
+<option value="Entertainment">Entertainment</option>
+<option value="Medical">Medical</option>
+<option value="Education">Education</option>
+
+</select>
+
+</div>
+
+</section>
+
+<!-- ======================
+ACTION BUTTONS
+====================== -->
+
+<section class="actionButtons">
+
+<button id="sortAmount">
+<i class="fa-solid fa-arrow-up-wide-short"></i>
+Sort Amount
+</button>
+
+<button id="sortDate">
+<i class="fa-solid fa-calendar"></i>
+Sort Date
+</button>
+
+<button id="exportCSV">
+<i class="fa-solid fa-file-csv"></i>
+Export CSV
+</button>
+
+<button id="printReport">
+<i class="fa-solid fa-print"></i>
+Print
+</button>
+
+<button id="clearAll">
+<i class="fa-solid fa-trash"></i>
+Clear All
+</button>
+
+</section>
+
+<!-- ======================
+RECENT TRANSACTIONS
+====================== -->
+
+<section class="recentTransactions">
+
+<h2>
+
+Recent Transactions
+
+</h2>
+
+<div id="recentList">
+
+<div class="recentItem">
+
+<p>Food</p>
+
+<span>- ₹350</span>
+
+</div>
+
+<div class="recentItem">
+
+<p>Salary</p>
+
+<span>+ ₹25000</span>
+
+</div>
+
+<div class="recentItem">
+
+<p>Shopping</p>
+
+<span>- ₹1500</span>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+TRANSACTION TABLE
+====================== -->
+
+<section class="tableSection">
+
+<h2>
+
+Transaction History
+
+</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Description</th>
+<th>Category</th>
+<th>Amount</th>
+<th>Type</th>
+<th>Date</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tbody">
+
+</tbody>
+
+</table>
+
+</section>
+
+<!-- ======================
+AI INSIGHTS
+====================== -->
+
+<section class="insightSection">
+
+<h2>
+
+AI Spending Insights
+
+</h2>
+
+<div class="insightCard">
+
+<p id="insight1">
+
+You spent 20% more on Food this month.
+
+</p>
+
+</div>
+
+<div class="insightCard">
+
+<p id="insight2">
+
+Shopping expenses reduced by 15%.
+
+</p>
+
+</div>
+
+<div class="insightCard">
+
+<p id="insight3">
+
+Great! You are within your monthly budget.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ======================
+EXPENSE GOALS
+====================== -->
+
+<section class="goalSection">
+
+<h2>
+
+Savings Goals
+
+</h2>
+
+<div class="goal">
+
+<h3>Vacation Trip</h3>
+
+<p>
+
+Goal : ₹50,000
+
+</p>
+
+<div class="progress">
+
+<div id="goalProgress"></div>
+
+</div>
+
+</div>
+
+<div class="goal">
+
+<h3>New Laptop</h3>
+
+<p>
+
+Goal : ₹80,000
+
+</p>
+
+<div class="progress">
+
+<div id="goalProgress2"></div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+ACHIEVEMENTS
+====================== -->
+
+<section class="achievementSection">
+
+<h2>
+
+Achievements
+
+</h2>
+
+<div class="badges">
+
+<div class="badge">
+
+🏆 First Transaction
+
+</div>
+
+<div class="badge">
+
+💰 Saved ₹10,000
+
+</div>
+
+<div class="badge">
+
+🎯 Budget Master
+
+</div>
+
+<div class="badge">
+
+🔥 30-Day Streak
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+CHARTS
+====================== -->
+
+<section class="chartSection">
+
+<div class="chartCard">
+
+<h2>
+
+Expense Categories
+
+</h2>
+
+<canvas id="pieChart"></canvas>
+
+</div>
+
+<div class="chartCard">
+
+<h2>
+
+Income vs Expense
+
+</h2>
+
+<canvas id="barChart"></canvas>
+
+</div>
+
+<div class="chartCard">
+
+<h2>
+
+Monthly Expense Trend
+
+</h2>
+
+<canvas id="lineChart"></canvas>
+
+</div>
+
+</section>
+
+<!-- ======================
+NOTIFICATIONS
+====================== -->
+
+<div id="toast">
+
+Transaction Added Successfully
+
+</div>
+
+<!-- ======================
+FOOTER
+====================== -->
+
+<footer>
+
+<p>
+
+© 2026 Expense Tracker Dashboard | Developed by Meghana V
+
+</p>
+
+</footer>
+
+</div>
+
+<script src="Expensee.js"></script>
+
+</body>
+
+</html>
