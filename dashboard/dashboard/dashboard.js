@@ -3,7 +3,7 @@ window.addEventListener("load", () => {
     const loader =
         document.getElementById("loader");
 
-    if (loader) { ghfkrfjkj
+    if (loader) { ghfkrfjkj dgjafg
 sjssjhj,h jhrkgjlrfjrg gjdsfg jjef
         setTimeout(() => {
 
