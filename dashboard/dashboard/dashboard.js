@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
         document.getElementById("loader");
 
     if (loader) { ghfkrfjkj dgjafg
-sjssjhj,h jhrkgjlrfjrg gjdsfg jjef jeedjsehf
+sjssjhj,h jhrkgjlrfjrg gjdsfg jjef jeedjsehf jdgajg
         setTimeout(() => { djfhefg
 
             loader.style.display = "none";
