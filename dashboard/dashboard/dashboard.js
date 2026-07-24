@@ -3,7 +3,7 @@ window.addEventListener("load", () => {
     const loader =
         document.getElementById("loader");
 
-    if (loader) {  dsf hfkgku
+    if (loader) {  dsf hfkgku fyjf
         setTimeout(() => { 
 
             loader.style.display = "none";
