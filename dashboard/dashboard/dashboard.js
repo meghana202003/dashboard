@@ -1,9 +1,9 @@
 window.addEventListener("load", () => {
 
     const loader =
-        document.getElementById("loader");
+        document.getElementById("loader"); 
 
-    if (loader) {  
+    if (loader) {  ffg
         setTimeout(() => { 
 
             loader.style.display = "none";
