@@ -3,7 +3,7 @@ window.addEventListener("load", () => {
     const loader =
         document.getElementById("loader"); 
 
-    if (loader) {  fukfgfk
+    if (loader) {  fukfgfk dgug
         setTimeout(() => { 
 
             loader.style.display = "none";
