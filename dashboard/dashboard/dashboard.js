@@ -3,8 +3,8 @@ window.addEventListener("load", () => {
     const loader =
         document.getElementById("loader"); 
 
-    if (loader) {  fjhf
-        setTimeout(() => { hf gdfahk hg fhf fgj djd di
+    if (loader) {  
+        setTimeout(() => { 
 gjg
             loader.style.display = "none";
 
