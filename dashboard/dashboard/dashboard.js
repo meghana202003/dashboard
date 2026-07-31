@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
 
     if (loader) {  
         setTimeout(() => { 
-gjufvk fch jdv gef dwvj
+gjufvk fch jdv gef dwvj vdfvvh
           loader.style.display = "none";
 
         }, 1000);
