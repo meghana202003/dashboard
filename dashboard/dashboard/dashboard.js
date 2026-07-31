@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
         document.getElementById("loader"); 
 
     if (loader) {  
-        setTimeout(() => { djsg jfwif hj
+        setTimeout(() => { djsg jfwif hj gkgk
 
           loader.style.display = "none";
 
