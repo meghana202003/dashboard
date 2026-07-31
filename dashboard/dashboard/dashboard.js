@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
         document.getElementById("loader"); 
 
     if (loader) {  
-        setTimeout(() => { djsg
+        setTimeout(() => { djsg jfwif
 
           loader.style.display = "none";
 
