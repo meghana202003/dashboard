@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
         document.getElementById("loader"); 
 
     if (loader) {  
-        setTimeout(() => { 
+        setTimeout(() => {  fjklg
           loader.style.display = "none";
 
         }, 1000);
