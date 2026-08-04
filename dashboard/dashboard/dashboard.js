@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
         document.getElementById("loader"); 
 
     if (loader) {  
-        setTimeout(() => { ugkugkgfhfghfkhk
+        setTimeout(() => { ugkugkgfhfghfkhk git
           loader.style.display = "none";
 
         }, 1000);
