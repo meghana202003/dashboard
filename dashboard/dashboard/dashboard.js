@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
         document.getElementById("loader"); 
 
     if (loader) {  
-        setTimeout(() => { fjehejhdggkgit add .ghgghgh
+        setTimeout(() => { 
 
           loader.style.display = "none";
 
