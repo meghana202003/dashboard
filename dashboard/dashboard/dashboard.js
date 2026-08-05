@@ -4,8 +4,8 @@ window.addEventListener("load", () => {
         document.getElementById("loader"); 
 
     if (loader) {  
-        setTimeout(() => { fjehejhdggkgit add .
-            
+        setTimeout(() => { fjehejhdggkgit add .ghg
+
           loader.style.display = "none";
 
         }, 1000);
