@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, Arial, sans-serif;
+  color: #1d2939;
+  background: #f4f7fb;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 60px 20px;
+  transition: 0.25s;
+}
+
+.hero,
+.counter-card,
+.features {
+  width: min(760px, 100%);
+  margin: 0 auto 24px;
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+}
+
+.hero {
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  background: #e0e7ff;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  margin: 16px 0 8px;
+}
+
+.hero p {
+  color: #667085;
+  line-height: 1.7;
+}
+
+.theme-button {
+  margin-top: 12px;
+  background: #4f46e5;
+  color: white;
+}
+
+.counter-card {
+  text-align: center;
+}
+
+.count {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.button-row button {
+  min-width: 70px;
+  background: #111827;
+  color: white;
+}
+
+.button-row .reset {
+  background: #64748b;
+}
+
+.features li {
+  margin: 12px 0;
+  line-height: 1.5;
+}
+
+.dark {
+  background: #111827;
+  color: #f8fafc;
+}
+
+.dark .hero,
+.dark .counter-card,
+.dark .features {
+  background: #1f2937;
+  color: #f8fafc;
+}
+
+.dark .hero p {
+  color: #cbd5e1;
+}
+
+.dark .badge {
+  background: #312e81;
+}
+
+.dark .button-row .reset {
+  background: #475569;
+}
